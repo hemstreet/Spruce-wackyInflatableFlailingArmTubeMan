@@ -19,12 +19,19 @@ var wackyInflatableFlailingArmTubeMan = {
 
         socket.on('did-book-appointments', function () {
             console.log('appointment booked');
-            this.goGoGadgetInflatableMan();
+            this.go();
         }.bind(this));
 
     },
 
-    goGoGadgetInflatableMan: function() {
+    go: function() {
+
+        if(this.isPartyTime) {
+            return;
+        }
+
+        this.isPartyTime = true;
+
         request(this.config.arduino + 0, function (error, response, body) {
             setTimeout(function() {
                 this.stop();
@@ -35,8 +42,8 @@ var wackyInflatableFlailingArmTubeMan = {
 
     stop: function() {
         request(this.config.arduino + 1, function (error, response, body) {
-            //this.isPartyTime = false;
-        });
+            this.isPartyTime = false;
+        }.bind(this));
     }
 };
 
