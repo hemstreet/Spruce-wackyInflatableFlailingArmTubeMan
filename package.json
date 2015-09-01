@@ -1,0 +1,11 @@
+{
+  "name": "wackyInflatableFlailingArmTubeMan",
+  "version": "1.0.0",
+  "main": "script.js",
+  "license": "MIT",
+  "dependencies" : {
+    "underscore" : "latest",
+    "socket.io-client" : "latest",
+    "request": "latest"
+  }
+}
